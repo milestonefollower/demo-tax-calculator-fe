@@ -1,0 +1,29 @@
+@if(data()) {
+
+<table>
+    <tr>
+        <td>Gross Annual Salary:</td>
+        <td>£ {{data().annualGrossSalary | number:'1.2-2'}}</td>
+    </tr>
+    <tr>
+        <td>Gross Monthly Salary:</td>
+        <td>£ {{data().monthlyGrossSalary | number:'1.2-2'}}</td>
+    </tr>
+    <tr>
+        <td>Net Annual Salary:</td>
+        <td>£ {{data().annualNetSalary | number:'1.2-2'}}</td>
+    </tr>
+    <tr>
+        <td>Net Monthly Salary:</td>
+        <td>£ {{data().monthlyNetSalary | number:'1.2-2'}}</td>
+    </tr>
+    <tr>
+        <td>Annual Tax Paid:</td>
+        <td>£ {{data().annualTaxPaid | number:'1.2-2'}}</td>
+    </tr>
+    <tr>
+        <td>Monthly Tax Paid:</td>
+        <td>£ {{data().monthlyTaxPaid | number:'1.2-2'}}</td>
+    </tr>
+</table>
+}

@@ -1,0 +1,23 @@
+<form class="d-flex wrapper">
+
+    <mat-form-field>
+        <mat-label>Gross Annual Salary:</mat-label>
+        <input type="number" min="0" matInput [formControl]="annualGrossSalary" required numeric />
+        @if (annualGrossSalary.invalid) {
+            <mat-error>{{annualGrossSalary?.errors | json}}</mat-error>
+        }
+    </mat-form-field>
+
+    <button type="submit" mat-stroked-button 
+        [disabled]="isSubmitting$ | async"
+        (click)="onCalcButtonClick()"
+    >
+    <span style="display: inline-block;">
+        <mat-spinner *ngIf="(isSubmitting$ | async)" [diameter]="15" ></mat-spinner>
+    </span>
+    Calc</button>
+</form>
+
+<hr>
+
+<app-tax-calculation-result [data]="(taxCalculationResult$ | async)!"></app-tax-calculation-result>
