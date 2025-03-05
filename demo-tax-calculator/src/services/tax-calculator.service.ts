@@ -14,7 +14,7 @@ export class TaxCalculatorService {
   calculateTax(annualGrossSalary: number): Observable<TaxResultDto> {
     return environment.isDevelopment
       ? of(this.createMockData(annualGrossSalary)).pipe(delay(2000))
-      : this.http.post<TaxResultDto>(environment.apiUrl + '/TaxCalculator/CalculateTax', { annualGrossSalary });
+      : this.http.post<TaxResultDto>(environment.apiUrl + '/TaxCalculator/CalculateTax', { grossSalary: annualGrossSalary });
   }
 
 
