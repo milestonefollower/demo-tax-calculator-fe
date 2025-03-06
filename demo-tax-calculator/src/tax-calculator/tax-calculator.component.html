@@ -2,9 +2,9 @@
 
     <mat-form-field>
         <mat-label>Gross Annual Salary:</mat-label>
-        <input type="number" min="0" matInput [formControl]="annualGrossSalary" required numeric />
+        <input name="annualGrossSalary" type="number" min="0" matInput [formControl]="annualGrossSalary" required numeric />
         @if (annualGrossSalary.invalid) {
-            <mat-error>{{annualGrossSalary?.errors | json}}</mat-error>
+            <mat-error>{{annualGrossSalary.errors | json}}</mat-error>
         }
     </mat-form-field>
 
@@ -12,9 +12,11 @@
         [disabled]="isSubmitting$ | async"
         (click)="onCalcButtonClick()"
     >
-    <span style="display: inline-block;">
-        <mat-spinner *ngIf="(isSubmitting$ | async)" [diameter]="15" ></mat-spinner>
-    </span>
+    @if (isSubmitting$ | async) {
+        <span style="display: inline-block;">
+            <mat-spinner [diameter]="15" ></mat-spinner>
+        </span>
+    }
     Calc</button>
 </form>
 

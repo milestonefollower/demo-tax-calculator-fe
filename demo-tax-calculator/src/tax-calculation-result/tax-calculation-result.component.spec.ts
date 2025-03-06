@@ -10,11 +10,13 @@ describe('TaxCalculationResultComponent', () => {
     await TestBed.configureTestingModule({
       imports: [TaxCalculationResultComponent]
     })
-    .compileComponents();
-
-    fixture = TestBed.createComponent(TaxCalculationResultComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+      .compileComponents()
+      .then(() => {
+        fixture = TestBed.createComponent(TaxCalculationResultComponent);
+        component = fixture.componentInstance;
+        fixture.componentRef.setInput('data', {});
+        fixture.detectChanges();
+      })
   });
 
   it('should create', () => {

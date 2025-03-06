@@ -11,6 +11,6 @@ import { DecimalPipe, JsonPipe } from '@angular/common';
 })
 
 export class TaxCalculationResultComponent {
-  data = input.required<TaxResultDto>()
+  data = input.required<TaxResultDto | undefined>()
 
 }

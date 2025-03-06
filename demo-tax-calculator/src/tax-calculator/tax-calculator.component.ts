@@ -25,7 +25,7 @@ export class TaxCalculatorComponent {
   private readonly _destroyRef = inject(DestroyRef);
 
   readonly annualGrossSalary = new FormControl<number | null>(null, [Validators.required, Validators.min(0)]);
-  readonly taxCalculationResult$: Subject<TaxResultDto> = new Subject();
+  readonly taxCalculationResult$: Subject<TaxResultDto | undefined> = new Subject();
   readonly isSubmitting$: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 
   onCalcButtonClick() {
